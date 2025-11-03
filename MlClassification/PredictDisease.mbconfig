@@ -1,11 +1,13 @@
 ﻿{
-  "TrainingConfigurationVersion": 0,
-  "TrainingTime": 10,
-  "Scenario": {
-    "ScenarioType": "Classification"
-  },
+  "Scenario": "Classification",
   "DataSource": {
-    "DataSourceType": "TabularFile",
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": true,
+    "Type": "TabularFile",
     "FilePath": "C:\\Users\\Sina\\Desktop\\Desktop\\Work\\MLClassification\\MlClassification\\Data\\column_2C.txt",
     "Delimiter": " ",
     "DecimalMarker": ".",
@@ -15,118 +17,71 @@
         "ColumnName": "pelvic_incidence",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "pelvic_tilt",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "lumbar_lordosis_angle",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "sacral_slope",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "pelvic_radius",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "degree_spondylolisthesis",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
       },
       {
         "ColumnName": "class",
         "ColumnPurpose": "Label",
         "ColumnDataFormat": "String",
-        "IsCategorical": true
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
       }
     ]
   },
   "Environment": {
-    "EnvironmentType": "LocalCPU"
+    "Type": "LocalCPU",
+    "Version": 1
   },
-  "RunHistory": {
-    "Trials": [
-      {
-        "TrainerName": "FastTreeOva",
-        "Score": 0.8280532611408713,
-        "RuntimeInSeconds": 1.1089999675750732
-      },
-      {
-        "TrainerName": "FastForestOva",
-        "Score": 0.824683623733414,
-        "RuntimeInSeconds": 1.3500000238418579
-      },
-      {
-        "TrainerName": "FastForestOva",
-        "Score": 0.82000813396019689,
-        "RuntimeInSeconds": 1.2089999914169312
-      },
-      {
-        "TrainerName": "FastTreeOva",
-        "Score": 0.81842590181175434,
-        "RuntimeInSeconds": 1.2230000495910645
-      },
-      {
-        "TrainerName": "FastForestOva",
-        "Score": 0.81549160785956931,
-        "RuntimeInSeconds": 1.5609999895095825
-      },
-      {
-        "TrainerName": "SdcaLogisticRegressionOva",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.47099998593330383
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.20200000703334808
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.19300000369548798
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.19099999964237213
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.20100000500679016
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.19300000369548798
-      },
-      {
-        "TrainerName": "SdcaMaximumEntropyMulti",
-        "Score": 0.67036106954080121,
-        "RuntimeInSeconds": 0.77499997615814209
-      },
-      {
-        "TrainerName": "FastTreeOva",
-        "Score": 0.81311847688234029,
-        "RuntimeInSeconds": 1.1410000324249268
-      }
-    ],
-    "Pipeline": "[{\"EstimatorType\":\"ReplaceMissingValues\",\"Inputs\":[\"pelvic_incidence\",\"pelvic_tilt\",\"lumbar_lordosis_angle\",\"sacral_slope\",\"pelvic_radius\",\"degree_spondylolisthesis\"],\"Outputs\":[\"pelvic_incidence\",\"pelvic_tilt\",\"lumbar_lordosis_angle\",\"sacral_slope\",\"pelvic_radius\",\"degree_spondylolisthesis\"]},{\"EstimatorType\":\"Concatenate\",\"Inputs\":[\"pelvic_incidence\",\"pelvic_tilt\",\"lumbar_lordosis_angle\",\"sacral_slope\",\"pelvic_radius\",\"degree_spondylolisthesis\"],\"Outputs\":[\"Features\"]},{\"EstimatorType\":\"MapValueToKey\",\"Inputs\":[\"class\"],\"Outputs\":[\"class\"]},{\"LabelColumnName\":\"class\",\"FeatureColumnName\":\"Features\",\"NumberOfLeaves\":\"7\",\"MinimumExampleCountPerLeaf\":\"9\",\"NumberOfTrees\":\"5\",\"LearningRate\":\"0.0445470264431518\",\"FeatureFraction\":\"1\",\"MaximumBinCountPerFeature\":\"257\",\"EstimatorType\":\"FastTreeOva\",\"Inputs\":[\"class\"],\"Outputs\":[\"Features\"]},{\"EstimatorType\":\"MapKeyToValue\",\"Inputs\":[\"PredictedLabel\"],\"Outputs\":[\"PredictedLabel\"]}]",
-    "MetricName": "MicroAccuracy"
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 10,
+    "LabelColumn": "class"
   }
 }
