@@ -30,7 +30,7 @@ namespace MlClassification
             Console.WriteLine($"Degree_spondylolisthesis: {sampleData.Degree_spondylolisthesis}");
 
 
-            Console.WriteLine($"\n\nPredicted Class: {predictionResult.Prediction}\n\n");
+            Console.WriteLine($"\n\nPredicted Class: {predictionResult.PredictedLabel}\n\n");
             Console.WriteLine("=============== End of process, hit any key to finish ===============");
             Console.ReadKey();
         }
